@@ -24,7 +24,7 @@ fs.readFile(filePath, "utf8", (err, file) => {
     if (key && $e.is('code')) {
       $e.text().split(/\r\n|\r|\n/).map((command)=> {
         if (!commands[key]) { commands[key] = [] }
-        commands[key].push(command);
+        commands[key].push(command.replace(/^[#>\s\$]+/,''));
       });
     }
   });
@@ -32,7 +32,7 @@ fs.readFile(filePath, "utf8", (err, file) => {
   let question = {
     "type": "list",
     "name": "section",
-    "message": "choice md",
+    "message": "choice section",
     "choices": Object.keys(commands),
   }
 
@@ -40,11 +40,11 @@ fs.readFile(filePath, "utf8", (err, file) => {
     let question = {
       "type": "list",
       "name": "command",
-      "message": "choice md",
+      "message": "choice command",
       "choices": commands[answer["section"]],
     }
     inquirer.prompt([question]).then((answer) => {
-      child_process.exec(answer["command"].replace(/^[#>\s\$]+/,''), function (err, stdout, stderr) {
+      child_process.exec(answer["command"], function (err, stdout, stderr) {
         console.log(stdout);
       });
     })
