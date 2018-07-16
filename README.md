@@ -1,13 +1,11 @@
-# read you (i_read_u)
+# I read you (ireadu)
 Extracting commands from README markdown file.
-![20180716_i_read_u](https://user-images.githubusercontent.com/7953751/42749976-8ceda33a-8920-11e8-8c19-485bdf078a17.gif)
+![20180716_i_read_u](https://user-images.githubusercontent.com/7953751/42761855-b07ff612-8949-11e8-9b4b-01d7a9f690e9.gif)
 
 ## Installation
-git clone and run this.
 
 ```
-$ npm run build
-$ sudo npm link
+$ npm install --global s2terminal/i_read_u
 ```
 
 ## Usage
@@ -21,8 +19,15 @@ $ ireadu
 ```
 $ ls
 >w
- # pwd
-id
+```
+...and ` # pwd`, `id`.
+
+## Developing
+
+git clone and run this.
+```
+$ npm install --save-dev
+$ npm run build
 ```
 
 ## License
