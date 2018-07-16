@@ -1,0 +1,26 @@
+{
+  "name": "ireadu",
+  "scripts": {
+    "build": "webpack",
+    "exec": "node dist/main.js"
+  },
+  "bin": {
+    "ireadu": "./bin/ireadu.js"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.8",
+    "@types/inquirer": "0.0.42",
+    "@types/marked": "^0.4.0",
+    "@types/node": "^10.5.2",
+    "shebang-loader": "0.0.1",
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "inquirer": "^6.0.0",
+    "marked": "^0.4.0"
+  }
+}
