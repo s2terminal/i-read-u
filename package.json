@@ -1,11 +1,15 @@
 {
-  "name": "ireadu",
+  "name": "i-read-you",
+  "author": "s2terminal",
+  "description": "Extracting commands from README markdown file.",
+  "version": "0.0.1",
+  "bin": {
+    "ireadu": "./bin/ireadu.js"
+  },
+  "main": "./bin/ireadu.js",
   "scripts": {
     "build": "webpack",
     "exec": "node dist/main.js"
-  },
-  "bin": {
-    "ireadu": "./bin/ireadu.js"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.8",
@@ -22,5 +26,14 @@
     "cheerio": "^1.0.0-rc.2",
     "inquirer": "^6.0.0",
     "marked": "^0.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s2terminal/i_read_u.git"
+  },
+  "bugs": {
+    "url": "https://github.com/s2terminal/i_read_u/issues"
+  },
+  "homepage": "https://github.com/s2terminal/i_read_u#readme",
+  "license": "MIT"
 }
