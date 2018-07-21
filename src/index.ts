@@ -35,23 +35,30 @@ fs.readFile(filePath, "utf8", (err, file) => {
       }
     });
 
-  const question = {
+  const section = "section";
+  const questionSection = {
     type: "list",
-    name: "section",
+    name: section,
     message: "choice section",
     choices: Object.keys(commands)
   };
-
-  inquirer.prompt([question]).then(answer => {
-    const question = {
+  inquirer.prompt([questionSection]).then(answerSections => {
+    const command = "command";
+    const questionCommand = {
       type: "list",
-      name: "command",
+      name: command,
       message: "choice command",
-      choices: commands[answer.section]
+      choices: commands[answerSections[section]]
     };
-    inquirer.prompt([question]).then(answer => {
-      child_process.exec(answer.command, function(err, stdout, stderr) {
+    inquirer.prompt([questionCommand]).then(answerCommands => {
+      child_process.exec(answerCommands[command], (error, stdout, stderr) => {
         console.log(stdout);
+        if (error) {
+          console.error(error);
+        }
+        if (stderr) {
+          console.error(stderr);
+        }
       });
     });
   });

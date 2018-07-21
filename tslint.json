@@ -7,7 +7,9 @@
   ],
   "jsRules": {},
   "rules": {
-    "prettier": true
+    "prettier": true,
+    "no-console": [true, "debug"],
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }
