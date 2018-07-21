@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack",
     "exec": "node dist/main.js",
-    "lint": "tslint --config tslint.json src/index.ts"
+    "lint": "tslint --config tslint.json src/index.ts",
+    "lint:fix": "tslint --config tslint.json --fix src/index.ts"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.8",

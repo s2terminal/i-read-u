@@ -1,10 +1,10 @@
+import * as cheerio from "cheerio";
 import * as child_process from "child_process";
+import * as fs from "fs";
 import * as inquirer from "inquirer";
 import * as marked from "marked";
-import * as cheerio from "cheerio";
-import * as fs from "fs";
 
-let filePath = "README.md";
+const filePath = "README.md";
 
 fs.readFile(filePath, "utf8", (err, file) => {
   if (err) {
@@ -12,41 +12,47 @@ fs.readFile(filePath, "utf8", (err, file) => {
   }
   const html = marked(file);
 
-  let $ = cheerio.load(html);
+  const $ = cheerio.load(html);
 
-  let commands = {};
+  const commands = {};
   let key;
-  $('*').toArray().map((e)=> {
-    let $e = cheerio(e);
-    if ($e.is('h1,h2,h3,h4,h5,h6')) {
-      key = $e.text();
-    }
-    if (key && $e.is('code')) {
-      $e.text().split(/\r\n|\r|\n/).map((command)=> {
-        if (!commands[key]) { commands[key] = [] }
-        commands[key].push(command.replace(/^[#>\s\$]+/,''));
-      });
-    }
-  });
+  $("*")
+    .toArray()
+    .map(e => {
+      const $e = cheerio(e);
+      if ($e.is("h1,h2,h3,h4,h5,h6")) {
+        key = $e.text();
+      }
+      if (key && $e.is("code")) {
+        $e.text()
+          .split(/\r\n|\r|\n/)
+          .map(command => {
+            if (!commands[key]) {
+              commands[key] = [];
+            }
+            commands[key].push(command.replace(/^[#>\s\$]+/, ""));
+          });
+      }
+    });
 
-  let question = {
-    "type": "list",
-    "name": "section",
-    "message": "choice section",
-    "choices": Object.keys(commands),
-  }
+  const question = {
+    type: "list",
+    name: "section",
+    message: "choice section",
+    choices: Object.keys(commands)
+  };
 
-  inquirer.prompt([question]).then((answer) => {
-    let question = {
-      "type": "list",
-      "name": "command",
-      "message": "choice command",
-      "choices": commands[answer["section"]],
-    }
-    inquirer.prompt([question]).then((answer) => {
-      child_process.exec(answer["command"], function (err, stdout, stderr) {
+  inquirer.prompt([question]).then(answer => {
+    const question = {
+      type: "list",
+      name: "command",
+      message: "choice command",
+      choices: commands[answer.section]
+    };
+    inquirer.prompt([question]).then(answer => {
+      child_process.exec(answer.command, function(err, stdout, stderr) {
         console.log(stdout);
       });
-    })
+    });
   });
 });
