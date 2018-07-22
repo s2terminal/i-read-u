@@ -3,6 +3,7 @@ import * as child_process from "child_process";
 import * as fs from "fs";
 import * as inquirer from "inquirer";
 import * as marked from "marked";
+const program = require("commander");
 
 function markdownToHtml(filepath: string): string {
   let html: string;
@@ -71,7 +72,9 @@ function executeCommands(commands: { [key: string]: string[] }) {
 }
 
 function main() {
-  const html = markdownToHtml("README.md");
+  program.option("--file <filename>", "Specify the file name", "README.md");
+  program.parse(process.argv);
+  const html = markdownToHtml(program.file);
   const commands = htmlToCommands(html);
   executeCommands(commands);
 }
