@@ -29,6 +29,7 @@ git clone and run this.
 ```
 $ npm install --save-dev
 $ npm run watch
+$ npm run exec
 ```
 
 ### Linting
