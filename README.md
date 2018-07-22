@@ -6,7 +6,7 @@ Extracting commands from README markdown file.
 ## Installation
 
 ```
-$ npm install --global s2terminal/i_read_u
+$ npm install --global i-read-u
 ```
 
 ## Usage
