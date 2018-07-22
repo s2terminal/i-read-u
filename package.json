@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.16.0",
     "inquirer": "^6.0.0",
     "marked": "^0.4.0"
   },
