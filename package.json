@@ -45,5 +45,8 @@
     "url": "https://github.com/s2terminal/i_read_u/issues"
   },
   "homepage": "https://github.com/s2terminal/i_read_u#readme",
+  "keywords": [
+    "README", "markdown", "command", "parser"
+  ],
   "license": "MIT"
 }
