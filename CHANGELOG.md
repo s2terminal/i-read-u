@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.3 / 2018-07-22
+
+- fix project name to *i-read-u*
+- fix README to use npm install
+
 ## 0.0.2 / 2018-07-22
 
 - add `--file` option
