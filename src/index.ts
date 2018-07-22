@@ -72,7 +72,11 @@ function executeCommands(commands: { [key: string]: string[] }) {
 }
 
 function main() {
+  const packagejson = require("../package.json");
+
   program.option("--file <filename>", "Specify the file name", "README.md");
+  program.version(packagejson.version);
+
   program.parse(process.argv);
   const html = markdownToHtml(program.file);
   const commands = htmlToCommands(html);
