@@ -1,6 +1,7 @@
 module.exports = {
   entry: './src/index.ts',
   target: 'node',
+  // mode: 'development',
   module: {
     rules: [
       {
