@@ -13,6 +13,7 @@ $ npm install --global s2terminal/i_read_u
 
 ```
 $ ireadu
+$ ireadu --file ./CONTRIBUTING.md
 ```
 
 ### Test Commands (Try ireadu command and hit this)
