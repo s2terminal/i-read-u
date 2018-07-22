@@ -31,5 +31,11 @@ $ npm install --save-dev
 $ npm run build
 ```
 
+### Linting
+
+```
+$ npm run lint
+```
+
 ## License
 [MIT](LICENSE).
