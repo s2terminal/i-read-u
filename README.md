@@ -28,13 +28,15 @@ $ ls
 git clone and run this.
 ```
 $ npm install --save-dev
-$ npm run build
+$ npm run watch
+$ npm run exec
 ```
 
 ### Linting
 
 ```
 $ npm run lint
+$ npm run lint:fix
 ```
 
 ## License
