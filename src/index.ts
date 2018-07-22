@@ -4,14 +4,16 @@ import * as fs from "fs";
 import * as inquirer from "inquirer";
 import * as marked from "marked";
 
-const filePath = "README.md";
+function markdownToHtml(filepath: string): string {
+  let html: string;
 
-fs.readFile(filePath, "utf8", (err, file) => {
-  if (err) {
-    console.error(err);
-  }
-  const html = marked(file);
+  const file = fs.readFileSync(filepath, "utf8");
+  html = marked(file);
 
+  return html;
+}
+
+function htmlToCommands(html: string): { [key: string]: string[] } {
   const $ = cheerio.load(html);
 
   const commands = {};
@@ -35,6 +37,10 @@ fs.readFile(filePath, "utf8", (err, file) => {
       }
     });
 
+  return commands;
+}
+
+function executeCommands(commands: { [key: string]: string[] }) {
   const section = "section";
   const questionSection = {
     type: "list",
@@ -62,4 +68,12 @@ fs.readFile(filePath, "utf8", (err, file) => {
       });
     });
   });
-});
+}
+
+function main() {
+  const html = markdownToHtml("README.md");
+  const commands = htmlToCommands(html);
+  executeCommands(commands);
+}
+
+main();
