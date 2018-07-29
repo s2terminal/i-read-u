@@ -34,7 +34,7 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
             if (!commands[key]) {
               commands[key] = [];
             }
-            commands[key].push(command.replace(/^[#>\s\$]+/, ""));
+            commands[key].push(command.replace(/^[#>\s\$]*/, " "));
           });
       }
     });
