@@ -24,7 +24,8 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
     .map(e => {
       const $e = cheerio(e);
       if ($e.is("h1,h2,h3,h4,h5,h6")) {
-        key = $e.text();
+        const heading: number = +$e.get(0).tagName.substr(1, 1);
+        key = `${"#".repeat(heading)} ${$e.text()}`;
       }
       if (key && $e.is("code")) {
         $e.text()
