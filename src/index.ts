@@ -56,7 +56,7 @@ function executeCommands(commands: { [key: string]: string[] }) {
   const questionCommand = {
     type: "list",
     name: command,
-    message: "choice section",
+    message: "choice command",
     choices: commandChoices
   };
   inquirer.prompt([questionCommand]).then(answerCommands => {
