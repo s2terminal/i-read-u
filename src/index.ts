@@ -42,32 +42,26 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
 }
 
 function executeCommands(commands: { [key: string]: string[] }) {
-  const section = "section";
-  const questionSection = {
-    type: "list",
-    name: section,
-    message: "choice section",
-    choices: Object.keys(commands)
-  };
-  inquirer.prompt([questionSection]).then(answerSections => {
-    const command = "command";
-    const questionCommand = {
-      type: "list",
-      name: command,
-      message: "choice command",
-      choices: commands[answerSections[section]]
-    };
-    inquirer.prompt([questionCommand]).then(answerCommands => {
-      child_process.exec(answerCommands[command], (error, stdout, stderr) => {
-        console.log(stdout);
-        if (error) {
-          console.error(error);
-        }
-        if (stderr) {
-          console.error(stderr);
-        }
-      });
+  const command = "command";
+  const commandChoices = [];
+
+  Object.keys(commands).forEach(sect => {
+    commandChoices.push(new inquirer.Separator(sect));
+    commands[sect].forEach(cmd => {
+      commandChoices.push(cmd);
     });
+  });
+
+  const questionCommand = {
+    type: "list",
+    name: command,
+    message: "choice section",
+    choices: commandChoices
+  };
+  inquirer.prompt([questionCommand]).then(answerCommands => {
+    const cmd = child_process.exec(answerCommands[command]);
+    cmd.stdout.pipe(process.stdout);
+    cmd.stderr.pipe(process.stderr);
   });
 }
 
