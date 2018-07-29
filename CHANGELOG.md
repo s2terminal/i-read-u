@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## 0.0.4 / 2018-07-29
 
 - as abolishing the section question, and made only the command question
 
