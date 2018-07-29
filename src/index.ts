@@ -24,7 +24,8 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
     .map(e => {
       const $e = cheerio(e);
       if ($e.is("h1,h2,h3,h4,h5,h6")) {
-        key = $e.text();
+        const heading: number = +$e.get(0).tagName.substr(1, 1);
+        key = `${"#".repeat(heading)} ${$e.text()}`;
       }
       if (key && $e.is("code")) {
         $e.text()
@@ -33,7 +34,7 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
             if (!commands[key]) {
               commands[key] = [];
             }
-            commands[key].push(command.replace(/^[#>\s\$]+/, ""));
+            commands[key].push(command.replace(/^[#>\s\$]*/, " "));
           });
       }
     });
@@ -42,32 +43,26 @@ function htmlToCommands(html: string): { [key: string]: string[] } {
 }
 
 function executeCommands(commands: { [key: string]: string[] }) {
-  const section = "section";
-  const questionSection = {
-    type: "list",
-    name: section,
-    message: "choice section",
-    choices: Object.keys(commands)
-  };
-  inquirer.prompt([questionSection]).then(answerSections => {
-    const command = "command";
-    const questionCommand = {
-      type: "list",
-      name: command,
-      message: "choice command",
-      choices: commands[answerSections[section]]
-    };
-    inquirer.prompt([questionCommand]).then(answerCommands => {
-      child_process.exec(answerCommands[command], (error, stdout, stderr) => {
-        console.log(stdout);
-        if (error) {
-          console.error(error);
-        }
-        if (stderr) {
-          console.error(stderr);
-        }
-      });
+  const command = "command";
+  const commandChoices = [];
+
+  Object.keys(commands).forEach(sect => {
+    commandChoices.push(new inquirer.Separator(sect));
+    commands[sect].forEach(cmd => {
+      commandChoices.push(cmd);
     });
+  });
+
+  const questionCommand = {
+    type: "list",
+    name: command,
+    message: "choice command",
+    choices: commandChoices
+  };
+  inquirer.prompt([questionCommand]).then(answerCommands => {
+    const cmd = child_process.exec(answerCommands[command]);
+    cmd.stdout.pipe(process.stdout);
+    cmd.stderr.pipe(process.stderr);
   });
 }
 
