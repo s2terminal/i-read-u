@@ -10,6 +10,9 @@ Extracting commands from README markdown file.
 $ npm install --global i-read-u
 ```
 
+### Requirements
+Node.js v6.0+
+
 ## Usage
 ```bash
 $ ireadu
