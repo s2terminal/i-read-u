@@ -28,7 +28,7 @@ $ ls
 git clone and run this.
 ```bash
 $ npm install --save-dev
-$ npm run watch
+$ npm run webpack-watch
 $ bin/ireadu.js
 ```
 
