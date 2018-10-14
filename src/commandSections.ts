@@ -1,7 +1,6 @@
 import * as cheerio from "cheerio";
 import { StringCompiledHTML } from "./stringCompiledHTML";
 const NO_KEY = "NO_KEY";
-
 export class CommandSections {
   public static generateFromHTML(html: StringCompiledHTML): CommandSections {
     const $ = cheerio.load(html.string);
