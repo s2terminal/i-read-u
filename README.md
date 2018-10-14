@@ -10,6 +10,9 @@ Extracting commands from README markdown file.
 $ npm install --global i-read-u
 ```
 
+### Requirements
+Node.js v6.0+
+
 ## Usage
 ```bash
 $ ireadu
@@ -28,7 +31,7 @@ $ ls
 git clone and run this.
 ```bash
 $ npm install --save-dev
-$ npm run watch
+$ npm run webpack-watch
 $ bin/ireadu.js
 ```
 
