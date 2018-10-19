@@ -1,5 +1,11 @@
 # Change Log
 
+## [Unreleased]
+
+- update TypeScript 3.1 and some outdated npm packages
+- Remove unused packages
+- add test code
+
 ## 0.0.4 / 2018-07-29
 
 - as abolishing the section question, and made only the command question

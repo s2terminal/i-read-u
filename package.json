@@ -8,20 +8,37 @@
   },
   "main": "./bin/ireadu.js",
   "scripts": {
+    "test": "jest",
     "prepare": "webpack --config webpack.common.js",
     "webpack-watch": "webpack --config webpack.dev.js --watch",
     "webpack-size": "webpack --config webpack.dev.js -p",
-    "exec": "node dist/main.js",
     "lint": "tslint --config tslint.json src/index.ts",
     "lint:fix": "tslint --config tslint.json --fix src/index.ts"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.9",
     "@types/inquirer": "0.0.42",
+    "@types/jest": "^23.3.5",
     "@types/marked": "^0.4.2",
     "@types/node": "^10.11.7",
+    "jest": "^23.6.0",
     "prettier": "^1.14.3",
     "size-plugin": "^1.0.1",
+    "ts-jest": "^23.10.4",
     "ts-loader": "^4.5.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
@@ -44,7 +61,7 @@
   "bugs": {
     "url": "https://github.com/s2terminal/i_read_u/issues"
   },
-  "homepage": "https://github.com/s2terminal/i_read_u#readme",
+  "homepage": "https://s2terminal.github.io/i_read_u/",
   "keywords": [
     "README",
     "markdown",
