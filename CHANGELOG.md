@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## 0.0.5 / 2018-10-20
 
 - update TypeScript 3.1 and some outdated npm packages
 - Remove unused packages
