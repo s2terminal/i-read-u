@@ -21,7 +21,7 @@ export function executeCommands(commands: CommandSections): void {
   });
 }
 
-function generateInquirerChoices(
+export function generateInquirerChoices(
   commands: CommandSections
 ): ReadonlyArray<inquirer.ChoiceType> {
   const commandChoices: inquirer.ChoiceType[] = [];
