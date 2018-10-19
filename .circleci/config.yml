@@ -26,8 +26,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      # - run: yarn install
-      - run: npm install --save
+      - run: npm install --save-dev
+      - run: npm run prepare
 
       - save_cache:
           paths:
