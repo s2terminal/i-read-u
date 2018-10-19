@@ -41,5 +41,10 @@ $ npm run lint
 $ npm run lint:fix
 ```
 
+### Testing
+```bash
+$ npm test
+```
+
 ## License
 [MIT](LICENSE).
