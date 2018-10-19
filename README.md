@@ -1,4 +1,5 @@
 [![npm version](https://badge.fury.io/js/i-read-u.svg)](https://www.npmjs.com/package/i-read-u)
+[![CircleCI](https://circleci.com/gh/s2terminal/i_read_u.svg?style=svg)](https://circleci.com/gh/s2terminal/i_read_u)
 
 # I read you (ireadu)
 Extracting commands from README markdown file.
