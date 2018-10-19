@@ -1,7 +1,7 @@
 import * as inquirer from "inquirer";
-import { generateInquirerChoices } from "./CommandExecutor";
-import { CommandSections } from "./commandSections";
-import { StringCompiledHTML } from "./stringCompiledHTML";
+import { generateInquirerChoices } from "../src/commandExecutor";
+import { CommandSections } from "../src/commandSections";
+import { StringCompiledHTML } from "../src/stringCompiledHTML";
 
 const html = StringCompiledHTML.generateFromMarkdownFile("./test/DUMMY.md");
 
