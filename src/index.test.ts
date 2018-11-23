@@ -1,7 +1,6 @@
 import * as inquirer from "inquirer";
-import { generateInquirerChoices } from "../src/commandExecutor";
-import { CommandSections } from "../src/commandSections";
-import { StringCompiledHTML } from "../src/stringCompiledHTML";
+import { CommandSections } from "./classes/commandSections";
+import { StringCompiledHTML } from "./classes/stringCompiledHTML";
 
 const html = StringCompiledHTML.generateFromMarkdownFile("./test/DUMMY.md");
 
@@ -19,16 +18,19 @@ const commands = CommandSections.generateFromHTML(html);
 
 describe("CommandSections", () => {
   it("generate commands", () => {
-    expect(commands.sections).toEqual({
-      "# First Commands": [" ls", " w"],
-      "## Second Commands": [" pwd", " id"]
-    });
+    expect(commands.sections[0].renderHeader()).toEqual("# First Commands");
+    expect(commands.sections[0].commands[0].executable()).toEqual("ls");
+    expect(commands.sections[0].commands[1].executable()).toEqual("w");
+    expect(commands.sections[1].renderHeader()).toEqual("## Second Commands");
+    expect(commands.sections[1].commands[0].executable()).toEqual("pwd");
+    expect(commands.sections[1].commands[1].executable()).toEqual("id");
   });
 });
 
 describe("CommandExecutor", () => {
   it("generate InquirerChoices", () => {
-    expect(generateInquirerChoices(commands)).toEqual([
+    // tslint:disable-next-line:no-string-literal
+    expect(commands["generateInquirerChoices"]()).toEqual([
       new inquirer.Separator("# First Commands"),
       " ls",
       " w",

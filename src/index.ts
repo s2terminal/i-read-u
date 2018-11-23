@@ -1,8 +1,7 @@
 // tslint:disable-next-line:no-var-requires
 const commander = require("commander");
-import { executeCommands } from "./commandExecutor";
-import { CommandSections } from "./commandSections";
-import { StringCompiledHTML } from "./stringCompiledHTML";
+import { CommandSections } from "./classes/commandSections";
+import { StringCompiledHTML } from "./classes/stringCompiledHTML";
 
 // interface of command-line arguments
 interface IArgv {
@@ -14,7 +13,7 @@ function main(): void {
 
   const html = StringCompiledHTML.generateFromMarkdownFile(args.file);
   const commands = CommandSections.generateFromHTML(html);
-  executeCommands(commands);
+  commands.executeCommands();
 }
 
 function configureCommander(): IArgv {
