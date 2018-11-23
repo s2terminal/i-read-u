@@ -4,6 +4,7 @@
   "description": "Extracting commands from README markdown file.",
   "version": "0.0.6",
   "bin": {
+    "i-read-u": "./bin/ireadu.js",
     "ireadu": "./bin/ireadu.js"
   },
   "main": "./bin/ireadu.js",
@@ -56,12 +57,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/s2terminal/i_read_u.git"
+    "url": "git+https://github.com/s2terminal/i-read-u.git"
   },
   "bugs": {
-    "url": "https://github.com/s2terminal/i_read_u/issues"
+    "url": "https://github.com/s2terminal/i-read-u/issues"
   },
-  "homepage": "https://s2terminal.github.io/i_read_u/",
+  "homepage": "https://s2terminal.github.io/i-read-u/",
   "keywords": [
     "README",
     "markdown",
