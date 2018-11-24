@@ -4,14 +4,12 @@ import { format, parse, ParsedPath } from "path";
 
 export class StringCompiledHTML {
   public static generateFromMarkdownFile(filepath: string): StringCompiledHTML {
-    const p = parse(filepath);
-    return new this(p);
+    const parsedPath = parse(filepath);
+    const file = fs.readFileSync(format(parsedPath), "utf8");
+    const html = new this();
+    html.string = marked(file);
+    return html;
   }
 
   public string: string;
-
-  private constructor(filepath: ParsedPath) {
-    const file = fs.readFileSync(format(filepath), "utf8");
-    this.string = marked(file);
-  }
 }
