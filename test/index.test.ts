@@ -1,6 +1,6 @@
 import * as inquirer from "inquirer";
-import { CommandSections } from "./classes/commandSections";
-import { StringCompiledHTML } from "./classes/stringCompiledHTML";
+import { CommandSections } from "../src/classes/commandSections";
+import { StringCompiledHTML } from "../src/classes/stringCompiledHTML";
 
 const html = StringCompiledHTML.generateFromMarkdownFile("./test/DUMMY.md");
 
