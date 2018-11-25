@@ -45,6 +45,7 @@ $ npm run lint:fix
 ### Testing
 ```bash
 $ npm test
+$ explorer.exe `wslpath -w coverage/lcov-report/index.html`
 ```
 
 ## License

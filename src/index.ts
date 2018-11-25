@@ -12,9 +12,8 @@ interface IArgv {
 }
 
 function main(): void {
-  const args: IArgv = configureCommander();
-
-  const content = fs.readFileSync(format(parse(args.file)), "utf8");
+  const args = configureCommander();
+  const content = read(args.file);
   const html = StringCompiledHTML.generateFromMarkdownContent(content);
   const commands = html.toCommandSections();
 
@@ -35,6 +34,10 @@ function configureCommander(): IArgv {
   commander.parse(process.argv);
 
   return { file: commander.file };
+}
+
+function read(filepath: string): string {
+  return fs.readFileSync(format(parse(filepath)), "utf8");
 }
 
 main();

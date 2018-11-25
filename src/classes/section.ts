@@ -9,7 +9,7 @@ export class Section {
 
   public push(command: Command) {
     this.commands.push(command);
-    return this.commands;
+    return this;
   }
 
   public renderHeader() {

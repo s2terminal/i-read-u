@@ -1,8 +1,8 @@
 import * as cheerio from "cheerio";
 import * as marked from "marked";
+import { Article } from "./article";
 import { Command } from "./command";
 import { Section } from "./section";
-import { Article } from "./article";
 
 export class StringCompiledHTML {
   public static generateFromMarkdownContent(content: string): StringCompiledHTML {
