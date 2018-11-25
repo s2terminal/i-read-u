@@ -1,8 +1,8 @@
 import * as cheerio from "cheerio";
 import * as marked from "marked";
 import { Command } from "./command";
-import { CommandSection } from "./commandSection";
-import { CommandSections } from "./commandSections";
+import { Section } from "./section";
+import { Article } from "./article";
 
 export class StringCompiledHTML {
   public static generateFromMarkdownContent(content: string): StringCompiledHTML {
@@ -14,11 +14,11 @@ export class StringCompiledHTML {
 
   public string: string;
 
-  public toCommandSections(): CommandSections {
+  public toCommandSections(): Article {
     const $ = cheerio.load(this.string);
-    const sections: CommandSections = new CommandSections();
+    const sections: Article = new Article();
 
-    let section: CommandSection;
+    let section: Section;
     $("*")
       .toArray()
       .map(e => {
@@ -29,13 +29,13 @@ export class StringCompiledHTML {
           if (section) {
             sections.sections.push(section);
           }
-          section = new CommandSection($e.text(), heading);
+          section = new Section($e.text(), heading);
         }
 
         // push commands to commandSection
         if ($e.is("code")) {
           if (!section) {
-            section = new CommandSection("", 0);
+            section = new Section("", 0);
           }
           $e.text()
             .split(/\r\n|\r|\n/)

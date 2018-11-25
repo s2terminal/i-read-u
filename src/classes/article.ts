@@ -1,8 +1,8 @@
 import * as inquirer from "inquirer";
-import { CommandSection } from "./commandSection";
+import { Section } from "./section";
 
-export class CommandSections {
-  public sections: CommandSection[];
+export class Article {
+  public sections: Section[];
 
   public constructor() {
     this.sections = [];

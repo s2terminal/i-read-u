@@ -1,4 +1,4 @@
-import { CommandSections } from "../src/classes/commandSections";
+import { Article } from "../src/classes/article";
 import { StringCompiledHTML } from "../src/classes/stringCompiledHTML";
 
 const html = new StringCompiledHTML();
