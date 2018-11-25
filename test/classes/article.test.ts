@@ -3,7 +3,6 @@ import { Article } from "../../src/classes/article";
 import { Command } from "../../src/classes/command";
 import { Section } from "../../src/classes/section";
 
-
 describe("Article", () => {
   let article: Article;
 
