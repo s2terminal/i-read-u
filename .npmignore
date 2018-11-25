@@ -1,3 +1,25 @@
-.vscode/
 src/
+test/
 tslint.json
+tsconfig.json
+
+# VS Code
+.vscode/
+
+# GitHub
+_config.yml
+
+# Circle CI
+.circleci
+coverage/
+
+# Git
+.git/
+.gitattributes
+
+# npm
+node_modules/
+
+# webpack
+webpack.common.js
+webpack.dev.js
