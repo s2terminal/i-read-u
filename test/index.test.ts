@@ -1,8 +1,10 @@
+import * as fs from "fs";
 import * as inquirer from "inquirer";
-import { CommandSections } from "../src/classes/commandSections";
+import { format, parse } from "path";
 import { StringCompiledHTML } from "../src/classes/stringCompiledHTML";
 
-const html = StringCompiledHTML.generateFromMarkdownFile("./test/DUMMY.md");
+const content = fs.readFileSync(format(parse("./test/DUMMY.md")), "utf8");
+const html = StringCompiledHTML.generateFromMarkdownContent(content);
 
 describe("StringCompiledHTML", () => {
   it("generate HTML", () => {
@@ -14,7 +16,7 @@ describe("StringCompiledHTML", () => {
   });
 });
 
-const commands = CommandSections.generateFromHTML(html);
+const commands = html.toCommandSections();
 
 describe("CommandSections", () => {
   it("generate commands", () => {

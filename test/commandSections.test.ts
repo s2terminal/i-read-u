@@ -7,7 +7,7 @@ describe("CommandSections", () => {
   describe("generateFromHTML()", () => {
     it("should extract commands from no header HTML", () => {
       html.string = `<pre><code>$ ls</code></pre>`;
-      const commands = CommandSections.generateFromHTML(html);
+      const commands = html.toCommandSections();
       expect(commands.sections[0].commands[0].executable()).toEqual("ls");
     });
 
@@ -19,7 +19,7 @@ describe("CommandSections", () => {
         <h1>First Header 2</h1>
         <pre><code>$ ls</code></pre>
       `;
-      const commands = CommandSections.generateFromHTML(html);
+      const commands = html.toCommandSections();
       expect(commands.sections[0].commands[0].executable()).toEqual("ls");
     });
   });
