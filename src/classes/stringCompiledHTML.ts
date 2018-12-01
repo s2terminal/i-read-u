@@ -16,7 +16,7 @@ export class StringCompiledHTML {
 
   public toCommandSections(): Article {
     const $ = cheerio.load(this.string);
-    const sections: Article = new Article();
+    const article: Article = new Article();
 
     let section: Section;
     $("*")
@@ -27,7 +27,7 @@ export class StringCompiledHTML {
         if ($e.is("h1,h2,h3,h4,h5,h6")) {
           const heading: number = +$e.get(0).tagName.substr(1, 1);
           if (section) {
-            sections.sections.push(section);
+            article.sections.push(section);
           }
           section = new Section($e.text(), heading);
         }
@@ -44,8 +44,8 @@ export class StringCompiledHTML {
             });
         }
       });
-    sections.sections.push(section);
+    article.sections.push(section);
 
-    return sections;
+    return article;
   }
 }
