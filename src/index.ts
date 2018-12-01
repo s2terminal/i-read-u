@@ -1,8 +1,10 @@
 // tslint:disable-next-line:no-var-requires
 const commander = require("commander");
-import { executeCommands } from "./commandExecutor";
-import { CommandSections } from "./commandSections";
-import { StringCompiledHTML } from "./stringCompiledHTML";
+import * as child_process from "child_process";
+import * as fs from "fs";
+import * as inquirer from "inquirer";
+import { format, parse } from "path";
+import { StringCompiledHTML } from "./classes/stringCompiledHTML";
 
 // interface of command-line arguments
 interface IArgv {
@@ -10,11 +12,18 @@ interface IArgv {
 }
 
 function main(): void {
-  const args: IArgv = configureCommander();
+  const args = configureCommander();
+  const content = read(args.file);
+  const html = StringCompiledHTML.generateFromMarkdownContent(content);
+  const commands = html.toCommandSections();
 
-  const html = StringCompiledHTML.generateFromMarkdownFile(args.file);
-  const commands = CommandSections.generateFromHTML(html);
-  executeCommands(commands);
+  commands.choiceOne((questionCommand, questionName) => {
+    inquirer.prompt([questionCommand]).then(answerCommands => {
+      const cmd = child_process.exec(answerCommands[questionName]);
+      cmd.stdout.pipe(process.stdout);
+      cmd.stderr.pipe(process.stderr);
+    });
+  });
 }
 
 function configureCommander(): IArgv {
@@ -25,6 +34,10 @@ function configureCommander(): IArgv {
   commander.parse(process.argv);
 
   return { file: commander.file };
+}
+
+function read(filepath: string): string {
+  return fs.readFileSync(format(parse(filepath)), "utf8");
 }
 
 main();
