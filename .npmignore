@@ -8,6 +8,7 @@ tsconfig.json
 
 # GitHub
 _config.yml
+.github/
 
 # Circle CI
 .circleci
