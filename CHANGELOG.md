@@ -1,5 +1,8 @@
 # Change Log
 
+## Unreleased
+- add some files to .npmignore
+
 ## 0.0.7 / 2018-11-23
 - rename project `i_read_u` to `i-read-u`
 - resolve vulnerability [CVE\-2018\-16469](https://nvd.nist.gov/vuln/detail/CVE-2018-16469)
