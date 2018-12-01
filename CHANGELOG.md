@@ -2,6 +2,7 @@
 
 ## Unreleased
 - add some files to .npmignore
+- add README.ja.md
 
 ## 0.0.7 / 2018-11-23
 - rename project `i_read_u` to `i-read-u`

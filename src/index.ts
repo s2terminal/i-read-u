@@ -13,7 +13,7 @@ interface IArgv {
 }
 
 function main(): void {
-  const __ = Internationalization.getByEnv(process.env.LANG);
+  const __ = i18n();
 
   try {
     const args = configureCommander();
@@ -21,7 +21,7 @@ function main(): void {
     const html = StringCompiledHTML.generateFromMarkdownContent(content);
     const commands = html.toCommandSections();
 
-    commands.choiceOne((questionCommand, questionName) => {
+    commands.choiceOne(__("question"), (questionCommand, questionName) => {
       inquirer.prompt([questionCommand]).then(answerCommands => {
         const cmd = child_process.exec(answerCommands[questionName]);
         cmd.stdout.pipe(process.stdout);
@@ -29,14 +29,23 @@ function main(): void {
       });
     });
   } catch (e) {
-    console.log(__("err"));
+    if (e instanceof Error) {
+      if (e.code === "ENOENT") {
+        // tslint:disable-next-line:no-console
+        console.log(__("FileNotFound"));
+      } else {
+        throw e;
+      }
+    } else {
+      throw e;
+    }
   }
 }
 
 function configureCommander(): IArgv {
   const packagejson: any = require("../package.json");
 
-  commander.option("--file <filename>", "Specify the file name", "README.md");
+  commander.option("-f, --file <filename>", "Specify the file name", "README.md");
   commander.version(packagejson.version);
   commander.parse(process.argv);
 
@@ -45,6 +54,15 @@ function configureCommander(): IArgv {
 
 function read(filepath: string): string {
   return fs.readFileSync(format(parse(filepath)), "utf8");
+}
+
+function i18n() {
+  const lang: unknown = process.env.LANG;
+  if (typeof lang === "string") {
+    return Internationalization.getByEnv(lang);
+  } else {
+    return Internationalization.getByEnv("");
+  }
 }
 
 main();

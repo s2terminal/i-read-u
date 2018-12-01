@@ -8,14 +8,14 @@ export class Article {
     this.sections = [];
   }
 
-  public choiceOne(prompt: (question: inquirer.Question, name: string) => void): void {
+  public choiceOne(message: string, prompt: (question: inquirer.Question, name: string) => void): void {
     const questionName = "command";
     const choices: ReadonlyArray<inquirer.ChoiceType> = this.generateInquirerChoices();
 
     const questionCommand: inquirer.Question = {
       type: "list",
       name: questionName,
-      message: "choice command",
+      message,
       choices
     };
 
