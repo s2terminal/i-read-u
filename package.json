@@ -2,7 +2,7 @@
   "name": "i-read-u",
   "author": "s2terminal",
   "description": "Extracting commands from README markdown file.",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "bin": {
     "i-read-u": "./bin/ireadu.js",
     "ireadu": "./bin/ireadu.js"

@@ -1,8 +1,14 @@
 # Change Log
 
 ## Unreleased
+- none
+
+## 1.0.0 / 2018-12-02
+- add some settings to tsconfig
 - add some files to .npmignore
 - add README.ja.md
+- `$LANG = ja_JP`のとき日本語対応
+- add `--file` option's alias `-f`
 
 ## 0.0.7 / 2018-11-23
 - rename project `i_read_u` to `i-read-u`
