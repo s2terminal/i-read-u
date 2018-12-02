@@ -29,7 +29,7 @@ describe("Article", () => {
   describe("choiceOne()", () => {
     const mock = jest.fn();
     it("should execute prompt", () => {
-      article.choiceOne(mock);
+      article.choiceOne("dummy text", mock);
       expect(mock).toHaveBeenCalledTimes(1);
     });
   });
