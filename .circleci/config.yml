@@ -26,12 +26,16 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install --save-dev
-      - run: npm run prepare
+      - run:
+          name: Setup dependencies
+          command: |
+            npm install --save-dev
+            npm run prepare
 
       - run:
           name: Setup Code Climate test-reporter
           command: |
+          # download test reporter as a static binary
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
 
@@ -44,6 +48,8 @@ jobs:
       - run:
           name: Run tests
           command: |
+          # notify Code Climate of a pending test report using `before-build`
             ./cc-test-reporter before-build
             npm test
+          # upload test report to Code Climate using `after-build`
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
