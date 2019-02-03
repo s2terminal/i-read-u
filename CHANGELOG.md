@@ -3,6 +3,9 @@
 ## Unreleased
 - none
 
+## 1.0.1 / 2019-02-03
+- Update TypeScript Ver 3.3 and some npm packages.
+
 ## 1.0.0 / 2018-12-02
 - add some settings to tsconfig
 - add some files to .npmignore
