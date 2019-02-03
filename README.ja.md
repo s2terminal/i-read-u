@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/i-read-u.svg)](https://www.npmjs.com/package/i-read-u)
 [![CircleCI](https://circleci.com/gh/s2terminal/i-read-u.svg?style=shield)](https://circleci.com/gh/s2terminal/i-read-u)
+[![Maintainability](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/maintainability)](https://codeclimate.com/github/s2terminal/i-read-u/maintainability)
 
 # I read you (ireadu)
 README等のマークダウンファイルから、コマンドを抽出します。
@@ -25,7 +26,7 @@ $ ireadu --file ./CONTRIBUTING.md
 ```
 その他の情報は`$ ireadu --help`を参照ください。
 
-### 試してみる(ireaduコマンドを実行してみてください)
+### 試してみる（ireaduコマンドを実行してみてください）
 ```bash
 $ ls
 >w
@@ -40,16 +41,16 @@ $ npm run webpack-watch
 $ bin/ireadu.js
 ```
 
-### Linting
+### Lint
 ```bash
 $ npm run lint
 $ npm run lint:fix
 ```
 
-### Testing
+### テスト
 ```bash
 $ npm test
-$ explorer.exe `wslpath -w coverage/lcov-report/index.html`
+$ file=coverage/lcov-report/index.html && if type cmd.exe; then cmd.exe /c start ${file}; else open ${file}; fi
 ```
 
 ## ライセンス
