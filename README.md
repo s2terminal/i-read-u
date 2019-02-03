@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/i-read-u.svg)](https://www.npmjs.com/package/i-read-u)
 [![CircleCI](https://circleci.com/gh/s2terminal/i-read-u.svg?style=shield)](https://circleci.com/gh/s2terminal/i-read-u)
+[![Maintainability](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/maintainability)](https://codeclimate.com/github/s2terminal/i-read-u/maintainability)
 
 # I read you (ireadu)
 Extracting commands from README markdown file.
@@ -49,7 +50,7 @@ $ npm run lint:fix
 ### Testing
 ```bash
 $ npm test
-$ explorer.exe `wslpath -w coverage/lcov-report/index.html`
+$ file=coverage/lcov-report/index.html && if type cmd.exe; then cmd.exe /c start ${file}; else open ${file}; fi
 ```
 
 ## License
