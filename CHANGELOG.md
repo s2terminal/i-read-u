@@ -3,6 +3,9 @@
 ## Unreleased
 - none
 
+## 1.0.2 / 2019-02-09
+- Update lodash
+
 ## 1.0.1 / 2019-02-03
 - Update TypeScript Ver 3.3 and some npm packages.
 
