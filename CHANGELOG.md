@@ -3,6 +3,9 @@
 ## Unreleased
 - none
 
+## 1.0.3 / 2019-06-08
+- resolve vulnerability https://github.com/s2terminal/i-read-u/pull/24
+
 ## 1.0.2 / 2019-02-09
 - Update lodash
 
