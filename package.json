@@ -63,7 +63,7 @@
     "cheerio": "^1.0.0-rc.3",
     "commander": "^2.20.0",
     "inquirer": "^6.3.1",
-    "marked": "^0.4.0"
+    "marked": "^0.6.2"
   },
   "repository": {
     "type": "git",
