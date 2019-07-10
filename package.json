@@ -45,7 +45,7 @@
     "@types/jest": "^23.3.14",
     "@types/marked": "^0.4.2",
     "@types/node": "^10.14.8",
-    "jest": "^23.6.0",
+    "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "size-plugin": "^1.2.0",
     "terser": "^3.17.0",
