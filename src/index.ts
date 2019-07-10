@@ -36,11 +36,13 @@ function main(): void {
 function configureCommander(): IArgv {
   const packagejson: any = require("../package.json");
 
-  commander.option("-f, --file <filename>", "Specify the file name", "README.md");
+  commander.arguments("[filename]");
   commander.version(packagejson.version);
   commander.parse(process.argv);
 
-  return { file: commander.file };
+  const file = commander.args[0] ? commander.args[0] : 'README.md';
+
+  return { file: file };
 }
 
 function read(filepath: string, __: (key: string) => string): string {
