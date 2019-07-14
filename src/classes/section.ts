@@ -3,16 +3,16 @@ import { Command } from "./command";
 export class Section {
   public commands: Command[];
 
-  constructor(private headerRawString: string, private headerLevel: number) {
+  public constructor(private headerRawString: string, private headerLevel: number) {
     this.commands = [];
   }
 
-  public push(command: Command) {
+  public push(command: Command): Section {
     this.commands.push(command);
     return this;
   }
 
-  public renderHeader() {
+  public renderHeader(): string {
     return `${"#".repeat(this.headerLevel)} ${this.headerRawString}`;
   }
 }

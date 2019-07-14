@@ -13,8 +13,8 @@
     "prepare": "webpack --config webpack.common.js",
     "webpack-watch": "webpack --config webpack.dev.js --watch",
     "webpack-size": "webpack --config webpack.dev.js -p",
-    "lint": "tslint --config tslint.json src/index.ts",
-    "lint:fix": "tslint --config tslint.json --fix src/index.ts"
+    "lint": "eslint src/**/* src/index.ts",
+    "lint:fix": "eslint --fix src/**/* src/index.ts"
   },
   "jest": {
     "globals": {

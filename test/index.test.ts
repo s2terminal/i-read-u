@@ -26,7 +26,6 @@ describe("main", () => {
   });
 
   it("generate InquirerChoices", () => {
-    // tslint:disable-next-line:no-string-literal
     expect(commands["generateInquirerChoices"]()).toEqual([
       new inquirer.Separator("# First Commands"),
       " ls",

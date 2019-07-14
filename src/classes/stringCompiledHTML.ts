@@ -23,7 +23,7 @@ export class StringCompiledHTML {
     const article: Article = new Article();
 
     let section: Section | null = null;
-    $("*").map((i, e) => {
+    $("*").map((i, e): void => {
       const $e = $(e);
       // push and generate new commandSection
       if ($e.is("h1,h2,h3,h4,h5,h6")) {
@@ -41,7 +41,7 @@ export class StringCompiledHTML {
         }
         $e.text()
           .split(/\r\n|\r|\n/)
-          .map((command: string) => {
+          .map((command: string): void => {
             if (section instanceof Section) {
               section.push(new Command(command));
             }

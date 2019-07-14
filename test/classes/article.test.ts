@@ -16,7 +16,6 @@ describe("Article", () => {
 
   describe("generateInquirerChoices()", () => {
     it("should return InquirerChoices", () => {
-      // tslint:disable-next-line:no-string-literal
       expect(article["generateInquirerChoices"]()).toEqual([
         new inquirer.Separator("# First Header"),
         " ls -la",

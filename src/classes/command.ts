@@ -1,11 +1,11 @@
 export class Command {
-  constructor(private rawString: string) {}
+  public constructor(private readonly rawString: string) {}
 
-  public render() {
+  public render(): string {
     return ` ${this.executable()}`;
   }
 
-  public executable() {
-    return this.rawString.replace(/^[#>\s\$]*/, "");
+  public executable(): string {
+    return this.rawString.replace(/^[#>\s$]*/, "");
   }
 }
