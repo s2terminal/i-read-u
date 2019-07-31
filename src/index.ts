@@ -5,7 +5,7 @@ import * as fs from "fs";
 import * as inquirer from "inquirer";
 import { format, parse } from "path";
 import { Internationalization } from "./classes/internationalization";
-import { StringCompiledHTML } from "./classes/stringCompiledHTML";
+import { StringCompiledTokens } from "./classes/stringCompiledTokens";
 
 // interface of command-line arguments
 interface Argv {
@@ -57,8 +57,8 @@ function main(): void {
 
   const args = configureCommander();
   const content = read(args.file, __);
-  const html = StringCompiledHTML.generateFromMarkdownContent(content);
-  const commands = html.toCommandSections();
+  const tokens = StringCompiledTokens.generateFromMarkdownContent(content);
+  const commands = tokens.toCommandSections();
 
   if (commands.sections.length === 0) {
     return;

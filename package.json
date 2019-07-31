@@ -40,7 +40,6 @@
     ]
   },
   "devDependencies": {
-    "@types/cheerio": "^0.22.11",
     "@types/inquirer": "0.0.42",
     "@types/jest": "^23.3.14",
     "@types/marked": "^0.4.2",
@@ -62,7 +61,6 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
     "commander": "^2.20.0",
     "inquirer": "^6.3.1",
     "marked": "^0.6.2"
