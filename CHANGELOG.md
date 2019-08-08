@@ -1,7 +1,9 @@
 # Change Log
 
 ## Unreleased
-- none
+
+## 2.0.1 / 2019-08-08
+- resolve vulnerability [CVE\-2019\-10744](https://nvd.nist.gov/vuln/detail/CVE-2019-10744)
 
 ## 2.0.0 / 2019-08-08
 - **BREAKING CHANGE : filename option is no longer necessary**
@@ -11,7 +13,6 @@
 - update TypeScript version
 - some refactoring (strict type checking)
 - change TSLint to [typescript\-eslint](https://github.com/typescript-eslint/typescript-eslint)
-- resolve vulnerability [CVE\-2019\-10744](https://nvd.nist.gov/vuln/detail/CVE-2019-10744)
 
 ## 1.0.3 / 2019-06-08
 - resolve vulnerability https://github.com/s2terminal/i-read-u/pull/24
