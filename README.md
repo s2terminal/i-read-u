@@ -1,10 +1,12 @@
 [日本語](README.ja.md) / [English](README.md)
 
+<p align="center">
+<img src="docs/static/logo.png" width="320"/>
+</p>
+
 [![npm version](https://badge.fury.io/js/i-read-u.svg)](https://www.npmjs.com/package/i-read-u)
 [![CircleCI](https://circleci.com/gh/s2terminal/i-read-u.svg?style=shield)](https://circleci.com/gh/s2terminal/i-read-u)
 [![Maintainability](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/maintainability)](https://codeclimate.com/github/s2terminal/i-read-u/maintainability)
-
-<img src="docs/static/logo.png">
 
 # I read you (ireadu)
 Extracting commands from README markdown file.
