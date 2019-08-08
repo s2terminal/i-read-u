@@ -77,6 +77,7 @@ function main(): void {
   const commands = tokens.toCommandSections(args.filter);
 
   if (commands.sections.length === 0) {
+    console.log(__("commandNotFound"));
     return;
   }
 

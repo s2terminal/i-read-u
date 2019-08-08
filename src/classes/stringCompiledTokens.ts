@@ -53,6 +53,13 @@ export class StringCompiledTokens {
       article.sections.push(section);
     }
 
+    const commandExist = article.sections.some((section): boolean => {
+      return section.commands.length > 0;
+    });
+    if (!commandExist) {
+      article.sections = [];
+    }
+
     return article;
   }
 }

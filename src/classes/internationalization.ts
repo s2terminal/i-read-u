@@ -5,12 +5,14 @@ export class Internationalization {
     if (env.indexOf("ja_JP") >= 0) {
       dictionaly = {
         question: "コマンドを選択してください",
-        FileNotFound: "ファイルが見つかりませんでした"
+        FileNotFound: "ファイルが見つかりませんでした",
+        commandNotFound: "コマンドが見つかりませんでした"
       };
     } else {
       dictionaly = {
         question: "choice command",
-        FileNotFound: "file not found"
+        FileNotFound: "file not found",
+        commandNotFound: "command not found"
       };
     }
 
