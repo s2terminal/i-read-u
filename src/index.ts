@@ -67,8 +67,14 @@ function main(): void {
   commands.choiceOne(__("question"), (questionCommand, questionName): void => {
     inquirer.prompt<{ [key: string]: string }>([questionCommand]).then((answerCommands): void => {
       const cmd = ChildProcess.exec(answerCommands[questionName]);
-      cmd.stdout.pipe(process.stdout);
-      cmd.stderr.pipe(process.stderr);
+      if (cmd != null) {
+        if (cmd.stdout != null) {
+          cmd.stdout.pipe(process.stdout);
+        }
+        if (cmd.stderr != null) {
+          cmd.stderr.pipe(process.stderr);
+        }
+      }
     });
   });
 }
