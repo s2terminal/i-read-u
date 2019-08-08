@@ -1,6 +1,8 @@
 import * as inquirer from "inquirer";
 import { Section } from "./section";
 
+type choiceType = inquirer.SeparatorOptions | string;
+
 export class Article {
   public sections: Section[];
 
@@ -10,9 +12,9 @@ export class Article {
 
   public choiceOne(message: string, prompt: (question: inquirer.Question, name: string) => void): void {
     const questionName = "command";
-    const choices: readonly inquirer.ChoiceType[] = this.generateInquirerChoices();
+    const choices: choiceType[] = this.generateInquirerChoices();
 
-    const questionCommand: inquirer.Question = {
+    const questionCommand: inquirer.Question & { choices: choiceType[] } = {
       type: "list",
       name: questionName,
       message,
@@ -22,8 +24,8 @@ export class Article {
     prompt(questionCommand, questionName);
   }
 
-  private generateInquirerChoices(): readonly inquirer.ChoiceType[] {
-    const commandChoices: inquirer.ChoiceType[] = [];
+  private generateInquirerChoices(): choiceType[] {
+    const commandChoices: choiceType[] = [];
 
     this.sections.forEach((section): void => {
       commandChoices.push(new inquirer.Separator(section.renderHeader()));
