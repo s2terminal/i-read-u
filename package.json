@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/inquirer": "0.0.42",
     "@types/jest": "^23.3.14",
-    "@types/marked": "^0.4.2",
+    "@types/marked": "^0.6.5",
     "@types/node": "^10.14.8",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
