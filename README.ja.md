@@ -7,6 +7,8 @@
 [![npm version](https://badge.fury.io/js/i-read-u.svg)](https://www.npmjs.com/package/i-read-u)
 [![CircleCI](https://circleci.com/gh/s2terminal/i-read-u.svg?style=shield)](https://circleci.com/gh/s2terminal/i-read-u)
 [![Maintainability](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/maintainability)](https://codeclimate.com/github/s2terminal/i-read-u/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/test_coverage)](https://codeclimate.com/github/s2terminal/i-read-u/test_coverage)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=s2terminal/i-read-u)](https://dependabot.com)
 
 # I read you (ireadu)
 README等のマークダウンファイルから、コマンドを抽出します。
