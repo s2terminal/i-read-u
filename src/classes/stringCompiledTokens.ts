@@ -3,6 +3,8 @@ import { Article } from "./article";
 import { Command } from "./command";
 import { Section } from "./section";
 
+export type filter = (code: string) => boolean;
+
 export class StringCompiledTokens {
   public static generateFromMarkdownContent(content: string): StringCompiledTokens {
     const compiled = new this();
@@ -17,7 +19,11 @@ export class StringCompiledTokens {
     this.tokens = [];
   }
 
-  public toCommandSections(): Article {
+  public toCommandSections(
+    filter: filter = (): boolean => {
+      return true;
+    }
+  ): Article {
     const article: Article = new Article();
     let section: Section | null = null;
 
@@ -34,7 +40,7 @@ export class StringCompiledTokens {
             section = new Section("", 0);
           }
           token.text.split(/\r\n|\r|\n/).map((command: string): void => {
-            if (section instanceof Section) {
+            if (filter(command) && section instanceof Section) {
               section.push(new Command(command));
             }
           });
