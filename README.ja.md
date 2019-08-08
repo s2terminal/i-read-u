@@ -4,6 +4,8 @@
 [![CircleCI](https://circleci.com/gh/s2terminal/i-read-u.svg?style=shield)](https://circleci.com/gh/s2terminal/i-read-u)
 [![Maintainability](https://api.codeclimate.com/v1/badges/19b1a0f802764172dd4a/maintainability)](https://codeclimate.com/github/s2terminal/i-read-u/maintainability)
 
+<img src="docs/static/logo.png" width="640"/>
+
 # I read you (ireadu)
 README等のマークダウンファイルから、コマンドを抽出します。
 
@@ -22,16 +24,17 @@ Node.js v6.0+
 ## 使い方
 ```bash
 $ ireadu
-$ ireadu --file ./CONTRIBUTING.md
+$ ireadu ./CONTRIBUTING.md
 ```
 その他の情報は`$ ireadu --help`を参照ください。
 
 ### 試してみる（ireaduコマンドを実行してみてください）
 ```bash
 $ ls
->w
+$ pwd
+> w
+>id
 ```
-...and ` # pwd`, `id`.
 
 ## 開発者用
 git cloneして下記を実行してください。
@@ -54,4 +57,5 @@ $ file=coverage/lcov-report/index.html && if type cmd.exe; then cmd.exe /c start
 ```
 
 ## ライセンス
-[MIT](LICENSE).
+Copyright (c) 2018 [s2terminal / suzuki\.sh](https://www.s2terminal.com/) (Twitter: [suzukiterminal](https://twitter.com/suzukiterminal))
+Licensed under the [MIT license](LICENSE).
