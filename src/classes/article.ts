@@ -10,7 +10,7 @@ export class Article {
 
   public choiceOne(message: string, prompt: (question: inquirer.Question, name: string) => void): void {
     const questionName = "command";
-    const choices: ReadonlyArray<inquirer.ChoiceType> = this.generateInquirerChoices();
+    const choices: readonly inquirer.ChoiceType[] = this.generateInquirerChoices();
 
     const questionCommand: inquirer.Question = {
       type: "list",
@@ -22,12 +22,12 @@ export class Article {
     prompt(questionCommand, questionName);
   }
 
-  private generateInquirerChoices(): ReadonlyArray<inquirer.ChoiceType> {
+  private generateInquirerChoices(): readonly inquirer.ChoiceType[] {
     const commandChoices: inquirer.ChoiceType[] = [];
 
-    this.sections.forEach(section => {
+    this.sections.forEach((section): void => {
       commandChoices.push(new inquirer.Separator(section.renderHeader()));
-      section.commands.forEach(cmd => {
+      section.commands.forEach((cmd): void => {
         commandChoices.push(cmd.render());
       });
     });
