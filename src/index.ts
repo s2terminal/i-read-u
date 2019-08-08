@@ -33,7 +33,7 @@ function configureCommander(): Argv {
   const packagejson: { version: string } = require("../package.json");
 
   commander.arguments("[filename]");
-  commander.option("-m, --match <matcher>", "Specify substrings to filtering commands");
+  commander.option("-m, --match <matcher>", "Specify substrings to filtering commands; e.g., '--match ls'");
   commander.version(packagejson.version);
   commander.parse(process.argv);
 
