@@ -65,7 +65,7 @@ function main(): void {
   }
 
   commands.choiceOne(__("question"), (questionCommand, questionName): void => {
-    inquirer.prompt([questionCommand]).then((answerCommands): void => {
+    inquirer.prompt<{ [key: string]: string }>([questionCommand]).then((answerCommands): void => {
       const cmd = ChildProcess.exec(answerCommands[questionName]);
       cmd.stdout.pipe(process.stdout);
       cmd.stderr.pipe(process.stderr);
