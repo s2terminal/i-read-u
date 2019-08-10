@@ -5,11 +5,12 @@ import * as fs from "fs";
 import * as inquirer from "inquirer";
 import { format, parse } from "path";
 import { Internationalization } from "./classes/internationalization";
-import { StringCompiledTokens } from "./classes/stringCompiledTokens";
+import { StringCompiledTokens, filter } from "./classes/stringCompiledTokens";
 
 // interface of command-line arguments
 interface Argv {
   file: string;
+  filter: filter;
 }
 
 function i18n(): (key: string) => string {
@@ -21,17 +22,32 @@ function i18n(): (key: string) => string {
   }
 }
 
+function matchFilter(matcher: string): (command: string) => boolean {
+  return (command: string): boolean => {
+    return command.indexOf(matcher) > 0;
+  };
+}
+
 function configureCommander(): Argv {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const packagejson: { version: string } = require("../package.json");
 
   commander.arguments("[filename]");
+  commander.option("-m, --match <matcher>", "Specify substrings to filtering commands; e.g., '--match ls'");
   commander.version(packagejson.version);
   commander.parse(process.argv);
 
   const file = commander.args[0] ? commander.args[0] : "README.md";
+  const filter = commander.match
+    ? matchFilter(commander.match)
+    : (): boolean => {
+        return true;
+      };
 
-  return { file: file };
+  return {
+    file: file,
+    filter: filter
+  };
 }
 
 function read(filepath: string, __: (key: string) => string): string {
@@ -58,9 +74,10 @@ function main(): void {
   const args = configureCommander();
   const content = read(args.file, __);
   const tokens = StringCompiledTokens.generateFromMarkdownContent(content);
-  const commands = tokens.toCommandSections();
+  const commands = tokens.toCommandSections(args.filter);
 
   if (commands.sections.length === 0) {
+    console.log(__("commandNotFound"));
     return;
   }
 
