@@ -1,6 +1,12 @@
 # Change Log
 
 ## Unreleased
+- null
+
+## 2.1.0 / 2019-08-10
+- add `--match` option - filtering substrings of commands
+  - e.g., `$ ireadu --match ls`
+- add commandNotFound message
 
 ## 2.0.1 / 2019-08-08
 - resolve vulnerability [CVE\-2019\-10744](https://nvd.nist.gov/vuln/detail/CVE-2019-10744)
