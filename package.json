@@ -1,8 +1,8 @@
 {
   "name": "i-read-u",
   "author": "s2terminal",
-  "description": "Extracting commands from README markdown file.",
-  "version": "2.1.0",
+  "description": "Read README markdown file, and execute written commands.",
+  "version": "2.1.1",
   "bin": {
     "i-read-u": "./bin/ireadu.js",
     "ireadu": "./bin/ireadu.js"

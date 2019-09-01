@@ -3,6 +3,9 @@
 ## Unreleased
 - null
 
+## 2.1.1 / 2019-09-01
+- fix security vulnerabilities.
+
 ## 2.1.0 / 2019-08-10
 - add `--match` option - filtering substrings of commands
   - e.g., `$ ireadu --match ls`
