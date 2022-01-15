@@ -63,7 +63,7 @@
   "dependencies": {
     "commander": "^3.0.0",
     "inquirer": "^7.0.0",
-    "marked": "^0.7.0"
+    "marked": "^4.0.10"
   },
   "repository": {
     "type": "git",
